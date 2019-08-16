@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FaReact, FaJsSquare, FaHtml5, FaCss3Alt, FaAdobe } from 'react-icons/fa'
 import Anime from 'react-anime'
+import '../css/hover.css'
 
 class About extends Component {
 
@@ -67,8 +68,12 @@ class About extends Component {
         return(
             <Anime {...animeProps}>
                 <div style={styles.buttonsContainer}>
-                    <button style={styles.hireButton}>Hire Me</button>
-                    <button style={styles.resumeButton}>Resume</button>
+                    <button className="hireButton">
+                        <a href="mailto:sikidamjanovic@gmail.com">Hire Me</a>
+                    </button>
+                    <button className="resumeButton" style={styles.resumeButton}>
+                        <a href="../resume.pdf">Resume</a>
+                    </button>
                 </div>
             </Anime>
         )
@@ -97,7 +102,8 @@ const styles = {
         fontWeight: 'normal',
         color: '#2c3e50',
         textAlign: 'center',
-        fontSize: '2.2em'
+        fontSize: '2.2em',
+        lineHeight: '1.5em'
     },
     boldedSpan:{
         color: '#2c3e50',
@@ -125,31 +131,8 @@ const styles = {
         fontFamily: 'Poppins'
     },
     buttonsContainer: {
-        marginTop: 50
-    },
-    resumeButton: {
-        backgroundColor: '#59ABE3',
-        padding: '10px 50px 10px 50px',
-        border: 'none',
-        borderRadius: 10,
-        color: 'white',
-        marginLeft: 20,
-        fontFamily: 'Poppins',
-        fontWeight: 'bold',
-        fontSize: '1.3em',
-        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)'
-    },
-    hireButton: {
-        backgroundColor: '#22A7F0',
-        padding: '10px 50px 10px 50px',
-        border: 'none',
-        borderRadius: 10,
-        color: 'white',
-        marginRight: 20, 
-        fontFamily: 'Poppins',
-        fontWeight: 'bold',
-        fontSize: '1.3em',
-        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)'
+        marginTop: 50,
+        display: 'flex'
     }
 }
 

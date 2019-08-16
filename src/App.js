@@ -6,6 +6,7 @@ import About from './components/About'
 import Profile from './img/profile.jpg'
 import Anime from 'react-anime'
 import { Container, Row, Col } from 'react-bootstrap'
+import './css/hover.css'
 
 class App extends Component {
 
@@ -22,7 +23,7 @@ class App extends Component {
         }
         return(
             <Anime {...animeProps}>
-                <img src={Profile} style={styles.profileImage} alt="profile"></img>
+                <img className="profileImg" src={Profile}  alt="profile"></img>
             </Anime>
         )
     }
@@ -37,12 +38,12 @@ class App extends Component {
         return(
             <Anime {...animeProps}>
                 <h1 style={styles.nameStyle}>
-                Sinisa <br></br>Damjanovic.
+                    Sinisa <br></br>Damjanovic.
                 </h1>
                 <div style={styles.icons}>
-                    <a href="https://www.linkedin.com/in/sinisa-damjanovic-673053bb/"><FaLinkedin style={styles.iconStyle}/></a>
-                    <a href="https://github.com/sikidamjanovic"><FaGithub style={styles.iconStyle}/></a>
-                    <MdEmail style={styles.iconStyle}/>
+                    <a href="https://www.linkedin.com/in/sinisa-damjanovic-673053bb/"><FaLinkedin className="icon"/></a>
+                    <a href="https://github.com/sikidamjanovic"><FaGithub className="icon"/></a>
+                    <a href="mailto:sikidamjanovicv@gmail.com"><MdEmail className="icon"/></a>
                 </div>
             </Anime>
         )
@@ -53,12 +54,12 @@ class App extends Component {
             <Container style={styles.appStyle}>
                 <Row style={styles.firstPageStyle}>
 
-                    <Col md={5} style={styles.profileContainer}>
+                    <Col lg={5} style={styles.profileContainer}>
                         {this.renderPhoto()}
                         {this.renderName()}
                     </Col>
 
-                    <Col md={7} style={styles.aboutContainer}>
+                    <Col lg={7} style={styles.aboutContainer}>
                         <About/>
                     </Col>
 
@@ -73,19 +74,24 @@ class App extends Component {
 
 const styles = {
     appStyle: {
-        minHeight: '100vh'
+        minHeight: '100vh',
+        maxWidth: '99%',
+        padding: 0,
+        margin: 0,
     },
     profileContainer:{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        padding: 100
     },
     aboutContainer:{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        padding: 100
     },
     nameStyle: {
         color: '#2c3e50',
@@ -102,12 +108,6 @@ const styles = {
         fontFamily: 'Open Sans',
         opacity: 0.8,
         margin: '10px 0px 10px 0px'
-    },
-    iconStyle: {
-        color: '#2c3e50',
-        fontSize: 40,
-        marginRight: 25,
-        opacity: 0.8
     },
     contentContainer:{
         backgroundColor: 'white',
@@ -137,21 +137,17 @@ const styles = {
         alignItems: 'center',
         height: '100%'
     },
-    profileImage:{
-        borderRadius: 7,
-        height: '200px',
-        marginBottom: 70,
-        boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.1)'
-    },
     icons:{
         display:'flex',
         justifyContent: 'center'
     },
     firstPageStyle:{
-        minHeight: '100vh'
+        minHeight: '100vh',
+        padding: 100
     },
     secondPageStyle:{
-        minHeight: '100vh'
+        minHeight: '100vh',
+        padding: 100
     }
 }
 
